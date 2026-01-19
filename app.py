@@ -1,11 +1,10 @@
 import gradio as gr
 import pandas as pd
-import joblib
 import numpy as np
 from transformers import pipeline
 
 # -------------------------------------------------
-# Load models once at startup (not on every request)
+# Load models 
 # -------------------------------------------------
 
 # BERT models
@@ -38,10 +37,6 @@ def predict_one(model_name: str, text: str):
         label = outputs[0]["label"]
         confidence = float(outputs[0]["score"])
         return {"label": label.lower(), "confidence": confidence}
-
-    elif model_name == "transformer_finetuned":
-        print("Using transformer fine-tuned model for prediction...")
-        # TODO : implement loading and prediction for fine-tuned model
 
     else:
         raise ValueError(f"Unknown model name: {model_name}")
