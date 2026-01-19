@@ -4,6 +4,7 @@ presentation.pptx
 .gradio/
 instruction.docx
 .models/
+models/
 .data/
 chat.rapidgpt
 .DS_Store
