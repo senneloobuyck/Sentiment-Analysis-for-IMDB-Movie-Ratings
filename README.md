@@ -24,6 +24,7 @@ Two BERT-models, fine-tuned on sentimental datasets, are benchmarked:
 .
 ├── data/
 │   ├── IMDB-movie-reviews-GT.csv
+│   ├── IMDB-movie-reviews-only.csv
 ├── app.py
 ├── training.ipynb
 ├── requirements.txt
@@ -48,4 +49,4 @@ pip install -r requirements.txt
 python app.py
 ```
 
-The application will start locally and open a browser-based interface.
+The application will start locally and open a browser-based interface. You can use the `IMDB-movie-reviews-only.csv` file to test the batch prediction on CSV file and compare with the ground-truth `IMDB-movie-reviews-GT.csv` file.
