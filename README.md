@@ -12,7 +12,7 @@ The case demonstrates model training and deployment via an interactive interface
 ## Models 
 
 Two BERT-models, fine-tuned on sentimental datasets, are benchmarked: 
-- DistilBERT, fine-tuned on SST-2 dataset (general sentiment)
+- DistilBERT, fine-tuned on SST-2 dataset (general sentiment) and NYU Glue (general NLP benchmark)
 - RoBERTa large, fine-tuned on 15 different datasets (reviews, tweets, etc.)
 
 
