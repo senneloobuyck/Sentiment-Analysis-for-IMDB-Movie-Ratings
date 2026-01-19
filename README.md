@@ -37,7 +37,7 @@ Two BERT-models, fine-tuned on sentimental datasets, are benchmarked:
 
 ## Running the Project
 
-### Install dependencies
+### Install dependencies (Python 3.12.9)
 
 ```
 pip install -r requirements.txt
