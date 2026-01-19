@@ -3,5 +3,6 @@ presentation.pptx
 .gradio/
 instruction.docx
 .models/
+.data/
 chat.rapidgpt
 .DS_Store
