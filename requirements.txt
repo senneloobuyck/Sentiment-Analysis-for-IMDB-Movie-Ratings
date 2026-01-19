@@ -1,10 +1,8 @@
 pandas
 numpy
 scikit-learn
-re
-html
-matplotlib.pyplot
-time
+matplotlib
 transformers
 gradio
+
 
