@@ -1,0 +1,7 @@
+presentation.pptx
+.venv/
+.gradio/
+instruction.docx
+.models/
+chat.rapidgpt
+.DS_Store
