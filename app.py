@@ -156,7 +156,7 @@ with gr.Blocks(title="Sentiment Analysis Demo") as demo:
     # Global model selector (used in both tabs)
     model_selector = gr.Radio(
         choices=["distilbert", "roberta"],
-        value="svm",
+        value="distilbert",
         label="Choose model"
     )
 
