@@ -5,5 +5,5 @@ matplotlib
 transformers
 gradio
 torch
-
+flask
 

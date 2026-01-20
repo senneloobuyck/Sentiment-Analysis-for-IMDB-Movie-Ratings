@@ -2,6 +2,7 @@ import gradio as gr
 import pandas as pd
 import numpy as np
 from transformers import pipeline
+from flask import Flask, request, jsonify
 
 # -------------------------------------------------
 # Load models 
@@ -185,5 +186,56 @@ with gr.Blocks(title="Sentiment Analysis Demo") as demo:
             outputs=[preview_out, file_out]
         )
 
+# -------------------------------------------------
+# Flask API endpoint setup
+# -------------------------------------------------
+
+app = Flask(__name__)
+
+@app.route("/health", methods=["GET"])
+def health():
+    return jsonify({"status": "ok"})
+
+
+@app.route("/api/predict", methods=["POST"])
+def api_predict():
+    """
+    JSON API for single-text sentiment prediction.
+    """
+    data = request.get_json(force=True, silent=True) or {}
+    text = data.get("text", "")
+    model_name = data.get("model", "distilbert")
+
+    if not text:
+        return jsonify({"error": "Missing 'text' field"}), 400
+
+    try:
+        result = predict_one(model_name, text)
+    except ValueError as e:
+        return jsonify({"error": str(e)}), 400
+
+    result["model"] = model_name
+    return jsonify(result)
+
+
+
+
 if __name__ == "__main__":
-    demo.launch()
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--mode",
+        choices=["gradio", "api"],
+        default="gradio",
+        help="Run Gradio demo or Flask API server.",
+    )
+    args = parser.parse_args()
+
+    if args.mode == "gradio":
+        # Start Gradio UI
+        demo.launch(server_name="0.0.0.0", server_port=7860)
+    else:
+        # Start Flask API
+        app.run(host="0.0.0.0", port=8000, debug=True)
+
