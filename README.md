@@ -46,7 +46,13 @@ pip install -r requirements.txt
 ### Launch the demo application
 
 ```
-python app.py
+python app.py --mode gradio
 ```
 
 The application will start locally and open a browser-based interface. You can use the `IMDB-movie-reviews-only.csv` file to test the batch prediction on CSV file and compare with the ground-truth `IMDB-movie-reviews-GT.csv` file.
+
+### Launch the Flask API endpoint
+
+```
+python app.py --mode api
+```
